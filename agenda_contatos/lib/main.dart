@@ -1,4 +1,3 @@
-import 'package:br/ui/contact_page.dart';
 import 'package:br/ui/home_page.dart';
 import 'package:flutter/material.dart';
 
