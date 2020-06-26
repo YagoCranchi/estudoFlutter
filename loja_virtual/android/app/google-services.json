@@ -1,0 +1,41 @@
+{
+  "project_info": {
+    "project_number": "852879131391",
+    "firebase_url": "https://lojaflutter-dfe6d.firebaseio.com",
+    "project_id": "lojaflutter-dfe6d",
+    "storage_bucket": "lojaflutter-dfe6d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852879131391:android:3794ee1f1c9e2ec20a42ca",
+        "android_client_info": {
+          "package_name": "cranchi.com.br"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "852879131391-4qi6248i6499ueoahdbjt77htufg3mlu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXBZ4LDjvYmLRXjEWNT-K5kyEo1nCZg8c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "852879131391-4qi6248i6499ueoahdbjt77htufg3mlu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
+
