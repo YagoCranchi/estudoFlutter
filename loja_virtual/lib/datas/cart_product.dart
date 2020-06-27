@@ -12,13 +12,13 @@ class CartProduct {
   String size;
 
   ProductData productData;
-
   CartProduct();
 
   CartProduct.fromDocument(DocumentSnapshot document){
     cid = document.documentID;
     category = document.data['category'];
-    pid = document.data['quantity'];
+    pid = document.data['pid'];
+    quantity = document.data['quantity'];
     size = document.data['size'];
   }
 
@@ -28,7 +28,7 @@ class CartProduct {
       'pid' : pid,
       'quantity': quantity,
       'size': size,
-      //'prdouct': productData.toResumedMap()
+      'product': productData.toResumedMap()
     };
   }
 

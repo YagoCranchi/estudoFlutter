@@ -1,7 +1,10 @@
 import 'package:br/models/cart_model.dart';
 import 'package:br/models/user_model.dart';
 import 'package:br/screens/login_screen.dart';
+import 'package:br/screens/order_screen.dart';
 import 'package:br/tiles/cart_tile.dart';
+import 'package:br/widgets/cart_price.dart';
+import 'package:br/widgets/discount_card.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -44,28 +47,30 @@ class CartScreen extends StatelessWidget {
                     .primaryColor,),
                 SizedBox(height: 16,),
                 Text('Faça o login para adicionar produtos!',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 16,),
                 RaisedButton(
                   child: Text("Entrar", style: TextStyle(fontSize: 18),),
                   textColor: Colors.white,
-                  color: Theme.of(context).primaryColor,
-                  onPressed: (){
+                  color: Theme
+                      .of(context)
+                      .primaryColor,
+                  onPressed: () {
                     Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context)=>LoginScreen())
+                        MaterialPageRoute(builder: (context) => LoginScreen())
                     );
                   },
                 )
               ],
             ),
           );
-        } else if (model.products == null || model.products.length == 0){
+        } else if (model.products == null || model.products.length == 0) {
           return Center(
             child: Text("Nenhum produto no carrinho!",
-            style: TextStyle(
-              fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 20, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
           );
@@ -74,11 +79,20 @@ class CartScreen extends StatelessWidget {
             children: <Widget>[
               Column(
                 children: model.products.map(
-                    (product){
+                        (product) {
                       return CartTile(product);
                     }
                 ).toList(),
-              )
+              ),
+              DiscountCard(),
+              CartPrice(() async {
+                String orderId = await model.finishiOrder();
+                if (orderId != null)
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) =>
+                          OrderScreen(orderId))
+                  );
+              }),
             ],
           );
         }
